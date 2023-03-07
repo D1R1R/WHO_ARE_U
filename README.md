@@ -2,7 +2,7 @@
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <h3 align="center"><i>"WHO ARE U?!" is telegram bot which can to find person only by one question.</i></h3>
 <hr>
-to start the game:
+to start the bot:
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=>+python+telegram_main.py)](https://git.io/typing-svg)
 
