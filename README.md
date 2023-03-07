@@ -10,32 +10,34 @@ to start the bot:
 ## Features
 
 **find person only by one question. types of question:**
-- Search by place of residence:
+- [ ] Search by place of residence:
 ```
 Who lives in New York??
 ```
-- [ ] Displays a list of famous people living in a given location.
-- Search by parents:
+Displays a list of famous people living in a given location.
+- [ ] Search by parents:
 ```
 Who is Dicaprio's brother??
 ```
-- [ ] Displays the name of the desired person and brief information about him/her.
-- Search all family:
+Displays the name of the desired person and brief information about him/her.
+- [ ] Search all family:
 ```
 Who is Dicaprio's family??
 ```
-- [ ] Displays a list of all family members including children and spouses.
-- Search by date:
+Displays a list of all family members including children and spouses.
+- [ ] Search by date:
 ```
 Who was born (died) in 1934? 
 ```
-- [ ] Displays a list of famous people associated with this date.
-- Search by by activity:
+Displays a list of famous people associated with this date.
+- [ ] Search by by activity:
 ```
 Who played in the movie Star Wars?
 ```
-- [ ] Displays the name of the desired person and brief information about him/her.
+Displays the name of the desired person and brief information about him/her.
+
+*The bot accepts all the user's messages and tries to find phrases or keywords in them. If the bot can't find anything, it asks to reformulate the request.*
 ### Dependencies
-- *request;*
+- **request;**
 - API python-telegram-bot;
 - API WikiData.
