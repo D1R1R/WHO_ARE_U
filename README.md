@@ -14,11 +14,27 @@ to start the bot:
 ```
 Who lives in New York??
 ```
+[X] Displays a list of famous people living in a given location.
 - Search by parents:
 ```
 Who is Dicaprio's brother??
 ```
-- comming soon...:/
+[X] Displays the name of the desired person and brief information about him/her.
+  - Search all family:
+  ```
+  Who is Dicaprio's family??
+  ```
+  [X] Displays a list of all family members including children and spouses.
+- Search by date:
+```
+Who was born (died) in 1934? 
+```
+[X] Displays a list of famous people associated with this date.
+- Search by by activity:
+```
+Who played in the movie Star Wars?
+```
+[X] Displays the name of the desired person and brief information about him/her.
 ### Dependencies
 - *request;*
 - API python-telegram-bot;
