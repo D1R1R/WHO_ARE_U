@@ -9,32 +9,32 @@ to start the bot:
 :white_check_mark: the code has passed all flake8 checks
 ## Features
 
-*find person only by one question. types of question:*
+**find person only by one question. types of question:**
 - Search by place of residence:
 ```
 Who lives in New York??
 ```
-[X] Displays a list of famous people living in a given location.
+[] Displays a list of famous people living in a given location.
 - Search by parents:
 ```
 Who is Dicaprio's brother??
 ```
-[X] Displays the name of the desired person and brief information about him/her.
-  - Search all family:
-  ```
-  Who is Dicaprio's family??
-  ```
-  [X] Displays a list of all family members including children and spouses.
+[] Displays the name of the desired person and brief information about him/her.
+    - Search all family:
+    ```
+    Who is Dicaprio's family??
+    ```
+    [] Displays a list of all family members including children and spouses.
 - Search by date:
 ```
 Who was born (died) in 1934? 
 ```
-[X] Displays a list of famous people associated with this date.
+[] Displays a list of famous people associated with this date.
 - Search by by activity:
 ```
 Who played in the movie Star Wars?
 ```
-[X] Displays the name of the desired person and brief information about him/her.
+[] Displays the name of the desired person and brief information about him/her.
 ### Dependencies
 - *request;*
 - API python-telegram-bot;
