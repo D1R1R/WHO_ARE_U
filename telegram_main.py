@@ -1,3 +1,4 @@
+import os
 import logging
 from telegram.ext import Application, filters
 from telegram.ext import CommandHandler, MessageHandler
@@ -5,6 +6,7 @@ from telegram.ext import CommandHandler, MessageHandler
 import commands
 import data
 
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG
@@ -26,7 +28,7 @@ async def algorithm(update, context):
 
 
 def main():
-    application = Application.builder().token('6214335284:AAHU-Qi0INPRfcWAW9Di6mehqGzCd1j0KPU').build()
+    application = Application.builder().token(BOT_TOKEN).build()
 
     text_handler = MessageHandler(filters.TEXT & ~filters.COMMAND, algorithm)
     application.add_handler(text_handler)
