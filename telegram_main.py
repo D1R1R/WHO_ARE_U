@@ -16,6 +16,9 @@ logger = logging.getLogger(__name__)
 analyzer = data.Question_analyzer()
 
 async def algorithm(update, context):
+    with open('load.gif', 'rb') as img:
+        await context.bot.send_animation(update.message.chat_id, img)
+
     reply_msg = analyzer.analyze(update.message.text)
     answer = ['Вот что мне удалось найти:',]
     num = 1
