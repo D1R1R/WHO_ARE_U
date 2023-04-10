@@ -1,6 +1,9 @@
 import requests
 import pymorphy2
 
+import analyzer
+
+
 url = 'https://query.wikidata.org/sparql'
 
 
@@ -22,41 +25,29 @@ class Question_analyzer():
             """.replace('$', word)
         return self.get_data(query.replace('$', word))
 
-    def analyze(self, msg: str):
-        msg = msg.lower()
-        code_name = None
-        name = None
-        for word in msg.split():
-            word = self._morph.parse(word)[0].normal_form
-            if msg[:msg.index(':')] == 'место':
-                word = word.capitalize()
-            try:
-                code_name = self.identifier(word)['results']['bindings'][0]['qid']['value']
-                break
-            except:
-                continue
-        if code_name:
-            if msg[:msg.index(':')] == 'семья':
+    def analyze(self, msg: str):        
+        reqest_type = analyzer.choose_type(msg)
+        if reqest_type:
+            if reqest_type == "PER":
+                code_name, name = analyzer.find_names(msg)
                 try:
-                    word = ' '.join(msg.split()[msg.split().index(word) + 1:])
-                    word = self._morph.parse(word)[0].normal_form
-                    word = ' '.join([x.capitalize() for x in word.split()])
-                    name = self.identifier(word)['results']['bindings'][0]['qid']['value']
+                    code_name = self.identifier(code_name)['results']['bindings'][0]['qid']['value']
+                    name = self.identifier(name)['results']['bindings'][0]['qid']['value']
                     return self.family(code_name, name)
                 except:
                     return 'Вы ввели некоректный запрос и я не смог его распознать. Попробуйте ввести /help'
-            elif msg[:msg.index(':')] == 'место':
-                return self.sity(code_name)
-            elif msg[:msg.index(':')] == 'работа':
+            elif reqest_type == "LOC":
+                code_name, name = analyzer.find_names(msg)
                 try:
-                    word = msg[msg.index('в') + 2:]
-                    word = self._morph.parse(word)[0].normal_form
-                    word = word.capitalize()
-                    name = self.identifier(word)['results']['bindings'][0]['qid']['value']
+                    code_name = self.identifier(code_name)['results']['bindings'][0]['qid']['value']
+                    name = self.identifier(name)['results']['bindings'][0]['qid']['value']
                     return self.profession(code_name, name)
                 except:
-                    return 'Вы ввели некоректный запрос и я не смог его распознать. Попробуйте ввести /help'  
-        return 'Вы ввели некоректный запрос и я не смог его распознать. Попробуйте ввести /help'
+                    try:
+                        name = self.identifier(name)['results']['bindings'][0]['qid']['value']
+                        return self.sity(name)
+                    except:
+                        return 'Вы ввели некоректный запрос и я не смог его распознать. Попробуйте ввести /help'
 
     def sity(self, sity_name):
         # Place: sity
