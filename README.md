@@ -25,15 +25,7 @@ Displays the name of the desired person and brief information about him/her.
 Who is Dicaprio's family??
 ```
 Displays a list of all family members including children and spouses.
-- [ ] Search by date:
-```
-Who was born (died) in 1934? 
-```
-Displays a list of famous people associated with this date.
-- [ ] Search by by activity:
-```
-Who played in the movie Star Wars?
-```
+
 Displays the name of the desired person and brief information about him/her.
 
 *The bot accepts all the user's messages and tries to find phrases or keywords in them. If the bot can't find anything, it asks to reformulate the request.*
