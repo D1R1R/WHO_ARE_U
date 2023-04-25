@@ -16,18 +16,28 @@ logger = logging.getLogger(__name__)
 analyzer = data.Question_analyzer()
 
 async def algorithm(update, context):
+    #gif
     with open('load.gif', 'rb') as img:
-        await context.bot.send_animation(update.message.chat_id, img)
-
+        await context.bot.send_animation(
+            update.message.chat_id, img, caption='ищу что-то по вашему запросу!'
+            )
+    # redky msg analyzing
     reply_msg = analyzer.analyze(update.message.text)
     answer = ['Вот что мне удалось найти:',]
     num = 1
-    for names in reply_msg.keys():
-        answer.append(f'{num}) ' + names + ' --> ' + reply_msg[names])
-        num += 1
-    if len(answer) == 1:
-        answer = ['К сожалению, я ничего не нашел.(']
-    await update.message.reply_text('\n'.join(answer))
+    try:
+        for names in reply_msg.keys():
+            answer.append(f'{num}) ' + names + ' --> ' + reply_msg[names])
+            num += 1
+        if len(answer) == 1:
+            answer = ['К сожалению, я ничего не нашел.(']
+        await update.message.reply_text('\n'.join(answer))
+    except:
+        if reply_msg:
+            await update.message.reply_text(reply_msg)
+        else:
+            await update.message.reply_text('Хватит баловаться!')
+
 
 
 def main():
