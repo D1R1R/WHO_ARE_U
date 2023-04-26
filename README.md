@@ -20,12 +20,10 @@ Displays a list of famous people living in a given location.
 Who is Dicaprio's brother??
 ```
 Displays the name of the desired person and brief information about him/her.
-- [ ] Search all family:
+- [ ] Search by profession:
 ```
-Who is Dicaprio's family??
+What kind of journalists are there in New York??
 ```
-Displays a list of all family members including children and spouses.
-
 Displays the name of the desired person and brief information about him/her.
 
 *The bot accepts all the user's messages and tries to find phrases or keywords in them. If the bot can't find anything, it asks to reformulate the request.*
